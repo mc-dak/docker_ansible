@@ -17,3 +17,9 @@ sudo docker push *new_name*
 sudo docker pull *new_name*
 ## запуск
 sudo docker run --rm network host -v $PWD:/playbook -w /playbook -v ~:/home/$USER -it ansible ansible-playbook -u $USER --private-key ~/.ssh/id_rsa test.yml -l *name_server*
+### чтобы работали docker модули ansible вроде docker_login нужно добавить volume
+-v /var/run/docker.sock:/var/run/docker.sock
+### чтобы не писать такую длинную команду можно добавить в alias
+vi ~/.bashrc
+
+alias ansible-palybook="sudo docker run --rm network host -v \$PWD:/playbook -w /playbook -v ~:/home/$USER -it ansible ansible-playbook -u $USER --private-key ~/.ssh/id_rsa"
