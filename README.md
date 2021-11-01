@@ -13,5 +13,7 @@ sudo docker rmi -f image_id
 sudo docker tag ansible *new_name*
 ## отправляем в нексус
 sudo docker push *new_name*
+## забираем из нексуса
+sudo docker pull *new_name*
 ## запуск
 sudo docker run --rm network host -v $PWD:/playbook -w /playbook -v ~:/home/$USER -it ansible ansible-playbook -u $USER --private-key ~/.ssh/id_rsa test.yml -l *name_server*
