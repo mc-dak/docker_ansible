@@ -6,7 +6,9 @@ sudo docker build -t ansible .
 sudo docker save ansible > ansible.tar
 ## загружаем в docker images
 sudo docker load --input ansible.tar
+
 если ранее был образ с таким именем то перед загрузкой удаляем старый
+
 sudo docker images
 sudo docker rmi -f image_id
 ## добавляем тег
