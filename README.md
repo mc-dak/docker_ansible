@@ -10,6 +10,7 @@ sudo docker load --input ansible.tar
 если ранее был образ с таким именем то перед загрузкой удаляем старый
 
 sudo docker images
+
 sudo docker rmi -f image_id
 ## добавляем тег
 sudo docker tag ansible *new_name*
@@ -25,3 +26,5 @@ sudo docker run --rm network host -v $PWD:/playbook -w /playbook -v ~:/home/$USE
 vi ~/.bashrc
 
 alias ansible-palybook="sudo docker run --rm network host -v \$PWD:/playbook -w /playbook -v ~:/home/$USER -it ansible ansible-playbook -u $USER --private-key ~/.ssh/id_rsa"
+
+аналогично для команд ansible, ansible-config, ansible-inventory только для ansible-invenory и ansible-config можно не прописывать в alias ключи -u и --private-key 
